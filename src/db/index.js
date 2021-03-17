@@ -1,19 +1,16 @@
 
 let dbParams = {
-  connectionString : "postgres://grxbyxtblwrryf:a828f1d1c4b42ff747eb43d1290d31daa63e099261e24625a368d237188d27eb@ec2-34-195-233-155.compute-1.amazonaws.com:5432/d3eoakaofaq40a"
 };
-// if (process.env.DATABASE_URL) {
-//   dbParams.connectionString = process.env.DATABASE_URL;
-//   dbParams.sslmode = require;
-// } else {
-//   dbParams = {
-//     host: process.env.PGHOST,
-//     port: process.env.PGPORT,
-//     user: process.env.PGUSER,
-//     password: process.env.PGPASSWORD,
-//     database: process.env.PGDATABASE,
-//     sslmode:require
-//   };
-// }
+if (process.env.DATABASE_URL) {
+  dbParams.connectionString = process.env.DATABASE_URL;
+} else {
+  dbParams = {
+    host: "ls-6a1e60392078f1a3943200850aef0602d1eb53a9.csdsebrve8sw.ca-central-1.rds.amazonaws.com",
+    port: "5432",
+    user: "dbmasteruser",
+    password: "<p6o<kHt(d=c^1)ItYvp,ad=blKbp`wa",
+    database: "test",
+  };
+}
 
 module.exports = dbParams;
