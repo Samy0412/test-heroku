@@ -20,14 +20,14 @@ const app = express();
 const PORT = process.env.PORT || 8001;
 
 //PG database client/connection setup
-const { Pool } = require('pg')
-const dbParams = require('./db/index.js');
-console.log("dbparams:",dbParams)
-const db = new Pool(dbParams);
+// const { Pool } = require('pg')
+// const dbParams = require('./db/index.js');
+// console.log("dbparams:",dbParams)
+// const db = new Pool(dbParams);
 
-db
-  .connect()
-  .catch((e) => console.log(`Error connecting to Postgres server:\n${e}`));
+// db
+//   .connect()
+//   .catch((e) => console.log(`Error connecting to Postgres server:\n${e}`));
 
 
   app.use(cors());
@@ -43,7 +43,7 @@ const neighbourhoodRoutes = require("./routes/neighbourhood");
 
   //Routes
   app.use("/", indexRoutes);
-  app.use("/neighbourhood", neighbourhoodRoutes(db));
+  // app.use("/neighbourhood", neighbourhoodRoutes(db));
   
 
 
@@ -52,9 +52,9 @@ const neighbourhoodRoutes = require("./routes/neighbourhood");
   });
   
 
-  app.close = function () {
-    return db.end();
-  };
+  // app.close = function () {
+  //   return db.end();
+  // };
 
 
  
